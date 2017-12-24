@@ -1,0 +1,116 @@
+<div class="container" ng-controller="expManagementController">
+	<p style="height: 50%">
+	<h4>Metrics</h4>
+	</p>
+	<hr />
+
+	<div class="row">
+
+		<!-- 1 -->
+		<!--   <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-comments fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">26</div>
+                                    <div>New Comments!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+ -->
+		<!-- 2 -->
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-green">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-tasks fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge" id="tottalCount">
+								{{getTotal()/2}} <i class="fa fa-inr" aria-hidden="true"></i>
+							</div>
+							<div>Per Person!</div>
+						</div>
+					</div>
+				</div>
+				<a href="#overview">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+
+		<!-- 3 -->
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-yellow">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-shopping-cart fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge" id="expensesLength">{{expenses.length}}</div>
+							<div>New Expenses!</div>
+						</div>
+					</div>
+				</div>
+				<a href="#overview">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- 4 -->
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-red">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-support fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">
+								{{getTotal()}} <i class="fa fa-inr" aria-hidden="true"></i>
+							</div>
+							<div>Total Spent Amount!</div>
+						</div>
+					</div>
+				</div>
+				<a href="#overview">
+					<div class="panel-footer">
+						<span class="pull-left">View Details</span> <span
+							class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div ng-controller="viewExpensesCtrl" class="container">
+		<div class="gridStyle" ng-grid="gridOptions"></div>
+	</div>
+</div>

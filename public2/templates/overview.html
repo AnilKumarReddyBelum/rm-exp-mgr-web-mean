@@ -1,0 +1,100 @@
+<div class="container" ng-controller="expManagementController">
+	<div>
+		<p style="height: 50%">
+			<h4>Create An Expense Here</h4>
+		</p>
+		<hr />
+
+		<div class="row" ng-if=" saveMsg() != null ">
+			<div class="col-sm-6 col-md-6" ng-if="saveMsg() == 'SUCCESS' ">
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">�</button>
+					<span class="glyphicon glyphicon-ok"></span>
+					<strong>New Expense Added Successfully!</strong>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-6" ng-if=" saveMsg() == 'ERROR' ">
+				<div class="alert alert-danger">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">�</button>
+					<span class="glyphicon glyphicon-hand-right"></span>
+					<strong>Oops! Error Occured While Saving!</strong>
+				</div>
+			</div>
+		</div>
+
+
+		<form class="form-horizontal" role="form" ng-submit="sbmitExpenseRecord();">
+
+
+			<div class="form-group">
+				<div class="col-sm-5">
+
+					<select class="form-control" id="form.owner" ng-model="form.owner" required="required">
+						<option value="" disabled selected>Expense Create By</option>
+						<option value="ChandraSekhar">Chandu</option>
+						<option value="AnilkumarReddy">Anil</option>
+					</select>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-5">
+					<input type="number" class="form-control" id="form.cost" ng-model="form.cost" placeholder="Add Your Expense Amount" required="required"
+					 min="0">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-5">
+					<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="submit">Create An Expense
+					</button>
+					<button type="reset" class="btn btn-danger" id="reset">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+
+
+	<div>
+		<table class="table table-bordered" style="width: 300px;">
+			<thead>
+				<tr>
+					<th>Owner</th>
+					<th>Total Amount Spent</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Chandu</td>
+					<td id="anilTotalAmount">{{getAnilTotal()}}
+						<i class="fa fa-inr" aria-hidden="true"></i>
+					</td>
+					<td>{{getAnilStatus()/2}}
+						<i class="fa fa-inr" aria-hidden="true"></i>
+					</td>
+				</tr>
+				<tr>
+					<td>Anil</td>
+					<td id="chanduTotalAmount">{{getChanduTotal()}}
+						<i class="fa fa-inr" aria-hidden="true"></i>
+					</td>
+					<td>{{getChanduStatus()/2}}
+						<i class="fa fa-inr" aria-hidden="true"></i>
+					</td>
+				</tr>
+				<tr>
+					<td id="totalAmount">Total</td>
+					<td colspan="2" align="center">{{getChanduTotal()+getAnilTotal()}}
+						<i class="fa fa-inr" aria-hidden="true"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

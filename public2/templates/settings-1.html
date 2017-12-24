@@ -1,0 +1,70 @@
+<div ng-controller="settingCtrl" class="container">
+	<p style="height: 50%">
+	<h4>Settings</h4>
+	</p>
+	<hr />
+	</i><h4>Please Reset For {{monthName()}} Month Expenses</h4><br/><h6>The Below Reset Button Will be Enable from Day <b>1</b> to
+		<b>10</b> for every Month otherwise After 10th Automatically Will Reset Your Monthly Expenses</h6>
+	<br/><br/>	
+	
+	
+
+	<br />
+
+	<div class="row" ng-if=" msg != null ">
+		<div class="col-sm-6 col-md-6" ng-if="msg == 'SUCCESSFULLY_RESETTED' ">
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<span class="glyphicon glyphicon-ok"></span> <strong><b>{{monthName()}}</b>-Month-Expenses
+					: {{msg}}</strong>
+				<hr class="message-inner-separator">
+				<p>All Expenses Got Re-Setted Successfully!</p>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-6" ng-if=" msg == 'ERROR_WHILE_RESETTING' ">
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-hidden="true">×</button>
+				<span class="glyphicon glyphicon-hand-right"></span> <strong>{{monthName()}}-Month-Expenses
+					: {{msg}}</strong>
+				<hr class="message-inner-separator">
+				<p>Error While Reset The Monthly Expenses!</p>
+			</div>
+		</div>
+	</div>
+
+
+	<br />
+
+
+	<div class="container" ng-if="enable();">
+		<button type="button" class="btn btn-danger btn-lg"
+			data-toggle="modal" data-target="#myModal">Reset The
+			{{monthName()}} Monthly Expenses</button>
+
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Reset The Expenses</h4>
+					</div>
+					<div class="modal-body">
+						<p>
+							If You click on Confirm All the <b>{{monthName()}}</b> Expenses
+							Will be removed
+						</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-info" ng-click="showAlert();"
+							data-dismiss="modal">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
